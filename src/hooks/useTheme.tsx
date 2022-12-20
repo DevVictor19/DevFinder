@@ -6,6 +6,7 @@ import {
   Dispatch,
   SetStateAction,
   ReactNode,
+  useMemo,
 } from "react";
 
 type Themes = "dark" | "light";
@@ -40,10 +41,10 @@ export default function ThemeContextProvider({ children }: Props) {
     localStorage.setItem("theme", theme);
   }, [theme]);
 
+  const context = useMemo(() => ({ theme, setTheme }), []);
+
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
-      {children}
-    </ThemeContext.Provider>
+    <ThemeContext.Provider value={context}>{children}</ThemeContext.Provider>
   );
 }
 
