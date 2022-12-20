@@ -2,11 +2,9 @@ import {
   useContext,
   createContext,
   useState,
-  useEffect,
   Dispatch,
   SetStateAction,
   ReactNode,
-  useMemo,
 } from "react";
 
 type Themes = "dark" | "light";
@@ -33,13 +31,12 @@ export default function ThemeContextProvider({ children }: Props) {
 
   const [theme, setTheme] = useState<Themes>(lastTheme);
 
-  useEffect(() => {
-    const root = window.document.documentElement;
+  const root = window.document.documentElement;
 
-    root.classList.remove(lastTheme);
-    root.classList.add(theme);
-    localStorage.setItem("theme", theme);
-  }, [theme]);
+  root.classList.remove(lastTheme);
+  root.classList.add(theme);
+
+  localStorage.setItem("theme", theme);
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
