@@ -27,15 +27,15 @@ const defaultValue = {
 const ThemeContext = createContext<ThemeContextInterface>(defaultValue);
 
 export default function ThemeContextProvider({ children }: Props) {
-  const currentTheme: Themes =
+  const lastTheme: Themes =
     localStorage.getItem("theme") === "dark" ? "dark" : "light";
 
-  const [theme, setTheme] = useState<Themes>(currentTheme);
+  const [theme, setTheme] = useState<Themes>(lastTheme);
 
   useEffect(() => {
     const root = window.document.documentElement;
 
-    root.classList.remove(currentTheme);
+    root.classList.remove(lastTheme);
     root.classList.add(theme);
     localStorage.setItem("theme", theme);
   }, [theme]);
