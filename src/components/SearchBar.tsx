@@ -21,7 +21,8 @@ export function SearchBar() {
         className="
         absolute inset-y-0 my-auto right-[10px]
         h-[50px] rounded-[10px] bg-custom-blue px-6
-        font-bold text-white hover:bg-h-custom-blue"
+        font-bold text-white hover:bg-h-custom-blue
+        active:bg-h-custom-blue"
         type="submit"
       >
         Search

@@ -19,8 +19,8 @@ export function App() {
           <h1 className="text-[26px] font-bold">devFinder</h1>
           <button
             className="flex items-center gap-4 font-bold text-light-soft-600
-            dark:text-dark-soft-600 text-[13px] tracking-[2.5px] group
-            hover:text-light-soft-h-600
+            dark:text-dark-soft-600 text-[13px] tracking-[2.5px] hover:text-light-soft-h-600
+            active:text-light-soft-h-600 dark:active:text-dark-soft-h-600 
             dark:hover:text-dark-soft-h-600"
             onClick={changeTheme}
           >
