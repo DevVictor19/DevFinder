@@ -1,11 +1,11 @@
 import { SearchBar } from "./SearchBar";
-import { UserInfoCard } from "./UserInfoCard";
+import { UserResume } from "./UserResume";
 
 export function UserSearch() {
   return (
     <section className="mt-[35px]">
       <SearchBar />
-      <UserInfoCard />
+      <UserResume />
     </section>
   );
 }
