@@ -1,8 +1,8 @@
-import { useTheme } from "../hooks/useTheme";
-import { MoonIcon } from "./MoonIcon";
-import { SunIcon } from "./SunIcon";
+import { useTheme } from "../../hooks/useTheme";
+import { MoonIcon } from "../icons/MoonIcon";
+import { SunIcon } from "../icons/SunIcon";
 
-export function AppMenu() {
+export function Menu() {
   const { theme, setTheme } = useTheme();
 
   function changeTheme() {
