@@ -8,7 +8,7 @@ export function SearchBar() {
       <input
         className="
         w-full h-[69px] rounded-[15px] pl-20 
-        bg-[#FEFEFE] shadow-[0px_16px_30px_-10px_#4660bb31]
+        bg-[#FEFEFE] shadow-custom
         dark:bg-[#1E2A47] dark:shadow-none 
         focus:outline-none font-normal text-lg 
         text-[#222731] dark:text-white
