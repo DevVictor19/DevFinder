@@ -27,7 +27,11 @@ export function App() {
             onClick={changeTheme}
           >
             {theme === "dark" ? "LIGHT" : "DARK"}
-            {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+            {theme === "dark" ? (
+              <SunIcon pathClassName="group-hover:fill-[#90A4D4] group-active:fill-[#90A4D4]" />
+            ) : (
+              <MoonIcon pathClassName="group-hover:fill-[#222731] group-active:fill-[#222731]" />
+            )}
           </button>
         </div>
         <UserSearch />
