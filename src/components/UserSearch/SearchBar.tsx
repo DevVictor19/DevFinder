@@ -1,4 +1,4 @@
-import findIcon from "../assets/find.svg";
+import findIcon from "../../assets/find.svg";
 
 export function SearchBar() {
   const invalidSearch = false;
