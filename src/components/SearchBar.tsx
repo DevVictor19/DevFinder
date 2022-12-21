@@ -8,21 +8,21 @@ export function SearchBar() {
       <input
         className="
         w-full h-[69px] rounded-[15px] pl-20 
-        bg-light-element shadow-light 
-        dark:bg-dark-element dark:shadow-none 
+        bg-[#FEFEFE] shadow-[0px_16px_30px_-10px_#4660bb31]
+        dark:bg-[#1E2A47] dark:shadow-none 
         focus:outline-none font-normal text-lg 
-        text-light-text dark:text-dark-text
-        placeholder:text-light-soft-400 
-        dark:placeholder:text-dark-soft-400"
+        text-[#222731] dark:text-white
+        placeholder:text-[#4B6A9B] 
+        dark:placeholder:text-white"
         type="text"
         placeholder="Search GitHub username…"
       />
       <button
         className="
         absolute inset-y-0 my-auto right-[10px]
-        h-[50px] rounded-[10px] bg-custom-blue px-6
-        font-bold text-white hover:bg-h-custom-blue
-        active:bg-h-custom-blue"
+        h-[50px] rounded-[10px] bg-[#0079FF] px-6
+        font-bold text-white hover:bg-[#60ABFF]
+        active:bg-[#60ABFF]"
         type="submit"
       >
         Search
@@ -35,7 +35,7 @@ export function SearchBar() {
       {invalidSearch && (
         <p
           className="absolute inset-y-0 my-auto right-[140px] 
-          h-min text-red-500 font-bold text-[15px]"
+          h-min text-[#F74646] font-bold text-[15px]"
         >
           No results
         </p>
