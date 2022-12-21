@@ -1,3 +1,5 @@
+// https://docs.github.com/en/rest/users/users?apiVersion=2022-11-28#get-a-user
+
 export interface UsersApiSchema {
   login: string;
   avatar_url: string;
