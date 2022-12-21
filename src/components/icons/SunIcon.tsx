@@ -1,4 +1,4 @@
-import { PathClassName } from "../interfaces/PathClassName";
+import { PathClassName } from "../../interfaces/PathClassName";
 
 export function SunIcon({ pathClassName }: PathClassName) {
   return (
