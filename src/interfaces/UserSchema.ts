@@ -1,6 +1,6 @@
 // https://docs.github.com/en/rest/users/users?apiVersion=2022-11-28#get-a-user
 
-export interface UsersApiSchema {
+export interface UserSchema {
   login: string;
   avatar_url: string;
   name: string | null;
@@ -10,7 +10,6 @@ export interface UsersApiSchema {
   bio: string | null;
   twitter_username: string | null;
   public_repos: number;
-  owned_private_repos: number;
   followers: number;
   following: number;
   created_at: string;
