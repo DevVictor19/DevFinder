@@ -1,15 +1,17 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { UserSchema } from "../../interfaces/UserSchema";
 import { SearchBar } from "./SearchBar";
 import { UserResume } from "./UserResume";
 
 export function UserSearch() {
-  const [user, setUser] = useState<UserSchema>();
+  const [user, setUser] = useState<UserSchema | null>(null);
 
-  function handleSearch(data: UserSchema) {
-    setUser(data);
-    console.log(data);
-  }
+  const handleSearch = useCallback(
+    (data: UserSchema) => {
+      setUser(data);
+    },
+    [setUser]
+  );
 
   return (
     <section className="mt-[35px]">
