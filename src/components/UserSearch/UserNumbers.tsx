@@ -1,4 +1,10 @@
-export function UserNumbers() {
+interface Props {
+  repos: number;
+  followers: number;
+  following: number;
+}
+
+export function UserNumbers({ repos, followers, following }: Props) {
   return (
     <ul
       className="mt-8 bg-[#F6F8FF] rounded-[10px] flex gap-[82px] 
@@ -15,7 +21,7 @@ export function UserNumbers() {
           className="font-bold text-[22px] text-[#2B3442]
              dark:text-white"
         >
-          8
+          {repos}
         </p>
       </li>
       <li>
@@ -29,7 +35,7 @@ export function UserNumbers() {
           className="font-bold text-[22px] text-[#2B3442]
              dark:text-white"
         >
-          3938
+          {followers}
         </p>
       </li>
       <li>
@@ -43,7 +49,7 @@ export function UserNumbers() {
           className="font-bold text-[22px] text-[#2B3442]
              dark:text-white"
         >
-          9
+          {following}
         </p>
       </li>
     </ul>
