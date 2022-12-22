@@ -1,5 +1,4 @@
 import {
-  useContext,
   createContext,
   useState,
   Dispatch,
@@ -24,9 +23,9 @@ const defaultValue = {
   setTheme: () => {},
 };
 
-const ThemeContext = createContext<ThemeContextInterface>(defaultValue);
+export const ThemeContext = createContext<ThemeContextInterface>(defaultValue);
 
-export default function ThemeContextProvider({ children }: Props) {
+export function ThemeContextProvider({ children }: Props) {
   const lastTheme: Themes =
     localStorage.getItem("theme") === "dark" ? "dark" : "light";
 
@@ -44,8 +43,4 @@ export default function ThemeContextProvider({ children }: Props) {
   return (
     <ThemeContext.Provider value={context}>{children}</ThemeContext.Provider>
   );
-}
-
-export function useTheme() {
-  return useContext(ThemeContext);
 }
