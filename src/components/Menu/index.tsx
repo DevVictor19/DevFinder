@@ -1,6 +1,5 @@
+import { Sun, Moon } from "phosphor-react";
 import { useTheme } from "../../hooks/useTheme";
-import { MoonIcon } from "../icons/MoonIcon";
-import { SunIcon } from "../icons/SunIcon";
 
 export function Menu() {
   const { theme, setTheme } = useTheme();
@@ -18,14 +17,14 @@ export function Menu() {
         className="flex items-center gap-4 font-bold text-[#697C9A] 
             hover:text-[#222731] dark:text-white text-[13px] tracking-[2.5px] 
             active:text-[#222731] dark:hover:text-[#90A4D4] 
-            dark:active:text-[#90A4D4] group"
+            dark:active:text-[#90A4D4]"
         onClick={changeTheme}
       >
         {theme === "dark" ? "LIGHT" : "DARK"}
         {theme === "dark" ? (
-          <SunIcon pathClassName="group-hover:fill-[#90A4D4] group-active:fill-[#90A4D4]" />
+          <Sun size={20} weight="fill" />
         ) : (
-          <MoonIcon pathClassName="group-hover:fill-[#222731] group-active:fill-[#222731]" />
+          <Moon size={22} weight="fill" />
         )}
       </button>
     </div>
