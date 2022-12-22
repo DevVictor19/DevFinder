@@ -1,53 +1,29 @@
 import { FormEvent, useRef } from "react";
 import findIcon from "../../assets/find.svg";
-import { UserSchema } from "../../interfaces/UserSchema";
 
 interface Props {
-  onSearch: (data: UserSchema) => void;
+  onSearch: (value: string) => void;
 }
 
 export function SearchBar({ onSearch }: Props) {
   const inputRef = useRef<HTMLInputElement>(null);
   const invalidSearch = false;
 
-  const handleSubmit = async (event: FormEvent) => {
+  const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
     const inputValue = inputRef.current?.value;
 
-    try {
-      const response = await fetch(
-        "https://api.github.com/users/" + inputValue
-      );
-
-      if (!response.ok) {
-        throw new Error(response.statusText);
-      }
-
-      const data = await response.json();
-
-      console.log(data);
-
-      const newUser: UserSchema = {
-        avatar_url: data.avatar_url,
-        bio: data.bio,
-        blog: data.blog,
-        company: data.company,
-        created_at: data.created_at,
-        followers: data.followers,
-        following: data.following,
-        location: data.location,
-        login: data.login,
-        name: data.name,
-        public_repos: data.public_repos,
-        twitter_username: data.twitter_username,
-      };
-
-      console.log(newUser);
-
-      onSearch(newUser);
-    } catch (error) {
-      console.log(error);
+    if (inputValue === "" || !inputValue) {
+      return;
     }
+
+    const handledInputValue = inputValue
+      .trim()
+      .split(" ")
+      .filter((item) => item !== "")
+      .join("");
+
+    onSearch(handledInputValue);
   };
 
   return (
