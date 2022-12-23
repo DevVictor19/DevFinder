@@ -1,16 +1,24 @@
 import { useCallback, useState } from "react";
 import { UserSchema } from "../../interfaces/UserSchema";
+import { Spinner } from "../Spinner";
 import { SearchBar } from "./SearchBar";
 import { UserResume } from "./UserResume";
 
 export function UserSearch() {
   const [user, setUser] = useState<UserSchema | null>(null);
+  const [isSearching, setIsSearching] = useState(false);
+
+  console.log("render");
 
   const handleSearch = useCallback(
     (search: string) => {
       fetch("https://api.github.com/users/" + search)
         .then((response) => {
+          setUser(null);
+          setIsSearching(true);
+
           if (!response.ok) {
+            setIsSearching(false);
             throw new Error(response.statusText);
           }
 
@@ -32,6 +40,7 @@ export function UserSearch() {
             twitter_username: data.twitter_username,
           };
 
+          setIsSearching(false);
           setUser(user);
         })
         .catch(console.log);
@@ -43,6 +52,11 @@ export function UserSearch() {
     <section className="mt-[35px]">
       <SearchBar onSearch={handleSearch} />
       {user && <UserResume user={user} />}
+      {isSearching && (
+        <div className="min-h-[200px] flex items-center justify-center">
+          <Spinner />
+        </div>
+      )}
     </section>
   );
 }
