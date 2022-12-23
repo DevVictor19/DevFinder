@@ -1,21 +1,29 @@
-import { FormEvent, useRef } from "react";
+import { FormEvent, useRef, useState, useEffect, ChangeEvent } from "react";
 import { MagnifyingGlass } from "phosphor-react";
 
 interface Props {
   onSearch: (value: string) => void;
+  noResults: boolean;
 }
 
-export function SearchBar({ onSearch }: Props) {
+export function SearchBar({ onSearch, noResults }: Props) {
   const inputRef = useRef<HTMLInputElement>(null);
-  const invalidSearch = false;
+  const [invalidSearch, setInvalidSearch] = useState(false);
 
-  const handleSubmit = (event: FormEvent) => {
+  useEffect(() => {
+    setInvalidSearch(noResults);
+  }, [noResults]);
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const inputValue = inputRef.current?.value;
 
     if (inputValue === "" || !inputValue) {
+      setInvalidSearch(true);
       return;
     }
+
+    inputRef.current.value = "";
 
     const handledInputValue = inputValue
       .trim()
@@ -24,6 +32,12 @@ export function SearchBar({ onSearch }: Props) {
       .join("");
 
     onSearch(handledInputValue);
+  };
+
+  const handleChange = () => {
+    if (invalidSearch === false) return;
+
+    setInvalidSearch(false);
   };
 
   return (
@@ -40,6 +54,7 @@ export function SearchBar({ onSearch }: Props) {
         type="text"
         placeholder="Search GitHub username…"
         ref={inputRef}
+        onChange={handleChange}
       />
       <button
         className="
