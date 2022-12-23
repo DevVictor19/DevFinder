@@ -1,4 +1,4 @@
-import { FormEvent, useRef, useState, useEffect, ChangeEvent } from "react";
+import { FormEvent, useRef, useState, useEffect } from "react";
 import { MagnifyingGlass } from "phosphor-react";
 
 interface Props {
