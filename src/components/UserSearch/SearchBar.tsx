@@ -1,5 +1,5 @@
 import { FormEvent, useRef } from "react";
-import findIcon from "../../assets/find.svg";
+import { MagnifyingGlass } from "phosphor-react";
 
 interface Props {
   onSearch: (value: string) => void;
@@ -51,10 +51,10 @@ export function SearchBar({ onSearch }: Props) {
       >
         Search
       </button>
-      <img
-        className="absolute inset-y-0 my-auto left-8"
-        src={findIcon}
-        alt="Find Icon"
+      <MagnifyingGlass
+        size={24}
+        color="#0079FF"
+        className="absolute inset-y-0 my-auto left-8 min-h-fit"
       />
       {invalidSearch && (
         <p
