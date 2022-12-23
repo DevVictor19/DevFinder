@@ -52,7 +52,7 @@ export function SearchBar({ onSearch }: Props) {
         Search
       </button>
       <MagnifyingGlass
-        size={24}
+        size={27}
         color="#0079FF"
         className="absolute inset-y-0 my-auto left-8 min-h-fit"
       />
