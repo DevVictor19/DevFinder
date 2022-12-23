@@ -15,10 +15,13 @@ export function UserResume({ user }: Props) {
   return (
     <article
       className="mt-6 bg-[#FEFEFE] dark:bg-[#1E2A47] rounded-[15px]
-        shadow-custom dark:shadow-none p-12 min-h-[444px]"
+        shadow-custom dark:shadow-none p-12 min-h-[444px] max-[600px]:p-6"
     >
       <section className="flex gap-9 justify-center">
-        <div className="w-[117px] h-[117px] rounded-full overflow-hidden shrink-0">
+        <div
+          className="w-[117px] h-[117px] rounded-full overflow-hidden shrink-0
+          max-[600px]:w-[70px] max-[600px]:h-[70px]"
+        >
           <img src={user.avatar_url} alt="avatar img" />
         </div>
         <div
@@ -28,17 +31,20 @@ export function UserResume({ user }: Props) {
           <div>
             <h1
               className="font-bold text-[26px] text-[#2B3442] 
-          dark:text-white"
+            dark:text-white max-[600px]:text-base"
             >
               {user.name ?? "No name provided"}
             </h1>
-            <h2 className="mt-0.5 font-normal text-base text-[#0079FF]">
+            <h2
+              className="mt-0.5 font-normal text-base text-[#0079FF]
+              max-[600px]:text-[13px] max-[480px]:mt-0"
+            >
               @{user.login}
             </h2>
           </div>
           <h3
             className="font-normal text-[15px] text-[#697C9A] 
-          dark:text-slate-300 max-[890px]:mt-1"
+          dark:text-slate-300 max-[890px]:mt-1 max-[600px]:text-[13px]"
           >
             {`Joined ${day} ${month} ${year}`}
           </h3>
@@ -48,7 +54,8 @@ export function UserResume({ user }: Props) {
       <section className="max-w-[480px] w-full max-[890px]:max-w-none ml-[153px] max-[890px]:ml-0">
         <p
           className="font-normal text-[15px] text-[#4B6A9B] 
-          dark:text-white mt-[-30px] max-[890px]:mt-6"
+          dark:text-white mt-[-30px] max-[890px]:mt-6 max-[600px]:text-[13px]
+          max-[600px]:leading-loose"
         >
           {user.bio ?? (
             <span className="text-slate-500">This profile has no bio</span>

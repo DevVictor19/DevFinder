@@ -9,8 +9,8 @@ interface Props {
 
 export function UserSocialMedias({ blog, company, location, twitter }: Props) {
   return (
-    <ul className="mt-9 grid grid-cols-2 gap-y-5 gap-x-16">
-      <li className="flex gap-4">
+    <ul className="mt-9 grid grid-cols-2 gap-y-5 gap-x-16 max-[450px]:grid-cols-1">
+      <li className="flex gap-4 max-[450px]:order-1">
         <MapPin
           size={20}
           weight="fill"
@@ -18,12 +18,15 @@ export function UserSocialMedias({ blog, company, location, twitter }: Props) {
             location ? "dark:text-white" : "text-[#4B6A9B]"
           }`}
         />
-        <p className="font-normal text-[15px] text-[#4B6A9B] dark:text-white">
+        <p
+          className="font-normal text-[15px] text-[#4B6A9B] dark:text-white
+          max-[600px]:text-[13px]"
+        >
           {location ?? <span className="text-slate-400">Not Avaliable</span>}
         </p>
       </li>
 
-      <li className="flex gap-4">
+      <li className="flex gap-4 max-[450px]:order-3">
         <TwitterLogo
           size={20}
           weight="fill"
@@ -31,7 +34,10 @@ export function UserSocialMedias({ blog, company, location, twitter }: Props) {
             twitter ? "dark:text-white" : "text-[#4B6A9B]"
           }`}
         />
-        <p className="font-normal text-[15px] text-[#4B6A9B] dark:text-white">
+        <p
+          className="font-normal text-[15px] text-[#4B6A9B] dark:text-white
+          max-[600px]:text-[13px]"
+        >
           {twitter ? (
             `@${twitter}`
           ) : (
@@ -40,7 +46,7 @@ export function UserSocialMedias({ blog, company, location, twitter }: Props) {
         </p>
       </li>
 
-      <li className="flex gap-4">
+      <li className="flex gap-4 max-[450px]:order-2">
         <Link
           size={20}
           weight="fill"
@@ -48,18 +54,27 @@ export function UserSocialMedias({ blog, company, location, twitter }: Props) {
             blog ? "dark:text-white" : "text-[#4B6A9B]"
           }`}
         />
-        <p className="font-normal text-[15px] text-[#4B6A9B] dark:text-white">
+        <p
+          className="font-normal text-[15px] text-[#4B6A9B] dark:text-white
+          max-[600px]:text-[13px]"
+        >
           {blog ? (
-            <a className="hover:underline" href={blog} target="_blank">
+            <a
+              className="hover:underline max-[600px]:text-[13px]"
+              href={blog}
+              target="_blank"
+            >
               Personal Blog
             </a>
           ) : (
-            <span className="text-slate-400">Not Avaliable</span>
+            <span className="text-slate-400 max-[600px]:text-[13px]">
+              Not Avaliable
+            </span>
           )}
         </p>
       </li>
 
-      <li className="flex gap-4">
+      <li className="flex gap-4 max-[450px]:order-4">
         <Buildings
           size={20}
           weight="fill"
@@ -67,7 +82,10 @@ export function UserSocialMedias({ blog, company, location, twitter }: Props) {
             company ? "dark:text-white" : "text-[#4B6A9B]"
           }`}
         />
-        <p className="font-normal text-[15px] text-[#4B6A9B] dark:text-white">
+        <p
+          className="font-normal text-[15px] text-[#4B6A9B] dark:text-white
+          max-[600px]:text-[13px]"
+        >
           {company ?? <span className="text-slate-400">Not Avaliable</span>}
         </p>
       </li>
