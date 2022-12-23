@@ -6,6 +6,9 @@ O DevFinder é uma aplicação para buscar usuários cadastrados no gitHub, traz
 
 Feita utilizando React + TypeScript
 
+### Links:
+* aplicação no ar: https://devfinder19.netlify.app/
+
 ### Tecnologias:
 
 - <strong>Tailwind</strong>
