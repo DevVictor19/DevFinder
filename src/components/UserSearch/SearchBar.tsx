@@ -7,19 +7,19 @@ interface Props {
 }
 
 export function SearchBar({ onSearch, noResults }: Props) {
+  const [isTyping, setIsTyping] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
-  const [invalidSearch, setInvalidSearch] = useState(false);
 
-  useEffect(() => {
-    setInvalidSearch(noResults);
-  }, [noResults]);
+  const invalidSearch = noResults && isTyping === false;
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const inputValue = inputRef.current?.value;
 
+    setIsTyping(false);
+
     if (inputValue === "" || !inputValue) {
-      setInvalidSearch(true);
+      alert("Empty Fields, please insert anything before searching...");
       return;
     }
 
@@ -37,7 +37,7 @@ export function SearchBar({ onSearch, noResults }: Props) {
   const handleChange = () => {
     if (invalidSearch === false) return;
 
-    setInvalidSearch(false);
+    setIsTyping(true);
   };
 
   return (
