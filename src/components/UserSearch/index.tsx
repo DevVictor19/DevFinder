@@ -12,18 +12,19 @@ const UserResume = lazy(() =>
 export function UserSearch() {
   const [user, setUser] = useState<UserSchema | null>(null);
   const [isSearching, setIsSearching] = useState(false);
-
-  console.log("render");
+  const [noResults, setNoResults] = useState(false);
 
   const handleSearch = useCallback(
     (search: string) => {
       fetch("https://api.github.com/users/" + search)
         .then((response) => {
           setUser(null);
+          setNoResults(false);
           setIsSearching(true);
 
           if (!response.ok) {
             setIsSearching(false);
+            setNoResults(true);
             throw new Error(response.statusText);
           }
 
@@ -55,7 +56,7 @@ export function UserSearch() {
 
   return (
     <section className="mt-[35px]">
-      <SearchBar onSearch={handleSearch} />
+      <SearchBar onSearch={handleSearch} noResults={noResults} />
       {user && (
         <Suspense
           fallback={
