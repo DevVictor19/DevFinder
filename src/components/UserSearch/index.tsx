@@ -1,8 +1,13 @@
-import { useCallback, useState } from "react";
+import { useCallback, useState, lazy, Suspense } from "react";
 import { UserSchema } from "../../interfaces/UserSchema";
 import { Spinner } from "../Spinner";
 import { SearchBar } from "./SearchBar";
-import { UserResume } from "./UserResume";
+
+const UserResume = lazy(() =>
+  import("./UserResume").then((module) => ({
+    default: module.UserResume,
+  }))
+);
 
 export function UserSearch() {
   const [user, setUser] = useState<UserSchema | null>(null);
@@ -51,11 +56,17 @@ export function UserSearch() {
   return (
     <section className="mt-[35px]">
       <SearchBar onSearch={handleSearch} />
-      {user && <UserResume user={user} />}
+      {user && (
+        <Suspense
+          fallback={
+            <Spinner className="min-h-[200px] flex items-center justify-center" />
+          }
+        >
+          <UserResume user={user} />
+        </Suspense>
+      )}
       {isSearching && (
-        <div className="min-h-[200px] flex items-center justify-center">
-          <Spinner />
-        </div>
+        <Spinner className="min-h-[200px] flex items-center justify-center" />
       )}
     </section>
   );
