@@ -23,7 +23,7 @@ export function SearchBar({ onSearch, noResults }: Props) {
       return;
     }
 
-    inputRef.current.value = "";
+    inputRef.current.value = " ";
 
     const handledInputValue = inputValue
       .trim()
