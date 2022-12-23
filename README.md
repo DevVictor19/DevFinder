@@ -9,7 +9,7 @@ Feita utilizando React + TypeScript
 ### Tecnologias:
 
 - <strong>Tailwind</strong>
-- <strong>Phosphor React (íncones)</strong>
+- <strong>Phosphor React (ícones)</strong>
 - <strong>TypeScript</strong>
 - <strong>React</strong>
 - <strong>Vite</strong>
