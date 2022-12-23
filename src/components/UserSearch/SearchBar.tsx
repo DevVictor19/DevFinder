@@ -54,7 +54,7 @@ export function SearchBar({ onSearch, noResults }: Props) {
         max-[600px]:pl-11 max-[600px]:placeholder:text-[13px]
         max-[480px]:h-[60px]"
         type="text"
-        placeholder="Search GitHub username…"
+        placeholder={invalidSearch ? "" : "Search GitHub username…"}
         ref={inputRef}
         onChange={handleChange}
       />
