@@ -22,9 +22,9 @@ export function Menu() {
       >
         {theme === "dark" ? "LIGHT" : "DARK"}
         {theme === "dark" ? (
-          <Sun size={20} weight="fill" />
+          <Sun data-testid="sun" size={20} weight="fill" />
         ) : (
-          <Moon size={22} weight="fill" />
+          <Moon data-testid="moon" size={22} weight="fill" />
         )}
       </button>
     </div>
