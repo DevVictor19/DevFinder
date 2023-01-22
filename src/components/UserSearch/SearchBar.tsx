@@ -14,7 +14,7 @@ export function SearchBar({ onSearch, noResults }: Props) {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const inputValue = inputRef.current?.value;
+    const inputValue = inputRef.current!.value.trim();
 
     setIsTyping(false);
 
@@ -23,10 +23,9 @@ export function SearchBar({ onSearch, noResults }: Props) {
       return;
     }
 
-    inputRef.current.value = "";
+    inputRef.current!.value = "";
 
     const handledInputValue = inputValue
-      .trim()
       .split(" ")
       .filter((item) => item !== "")
       .join("");
