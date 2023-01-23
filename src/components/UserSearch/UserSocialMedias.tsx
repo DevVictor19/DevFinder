@@ -60,6 +60,7 @@ export function UserSocialMedias({ blog, company, location, twitter }: Props) {
         >
           {blog ? (
             <a
+              data-testid="blog-link"
               className="hover:underline max-[600px]:text-[13px]"
               href={blog}
               target="_blank"
